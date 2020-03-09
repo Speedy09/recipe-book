@@ -1,4 +1,5 @@
 # AngularApp
+This is a simple Angular App with Recipes and Shopping List written during the Angular course.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
 
