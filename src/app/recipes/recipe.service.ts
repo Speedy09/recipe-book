@@ -10,7 +10,7 @@ export class RecipeService {
         new Recipe(
             'Tasty Pizza', 
             'A super-tasty Pizza - just awesome!', 
-            'https://www.publicdomainpictures.net/pictures/270000/nahled/pizza-1532881335pCX.jpg',
+            'https://www.monsieur-cuisine.com/fileadmin/_processed_/5/0/csm_23148_Rezeptfoto_01_21d2e4280f.jpg',
             [
                 new Ingredient('Cheese', 10),
                 new Ingredient('Tomato', 1)
