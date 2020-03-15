@@ -1,6 +1,14 @@
-# AngularApp
+# Recipe Book
 This is a simple Angular App written during the Angular course.
-It contains recipes, a shopping list and various functionalities that were taught during the course.
-</br>
-</br>
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
+##
+This is an application where you can have your own recipes and shopping list. It also has sign up and login authorization. The recipes are in the database, so we can fetch them and add new ones.
+<br>
+This project was generated with [Angular CLI](https://angular.io/cli) version 9.0.4.
+
+## Built With
+
+* [Angular](https://angular.io/docs)
+* [Firebase](https://firebase.google.com/docs)
+
+
+
