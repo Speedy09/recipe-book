@@ -1,5 +1,6 @@
+import { AlertComponent } from './../shared/alert/alert.component';
 import { NgForm } from '@angular/forms';
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver } from '@angular/core';
 import { AuthService, AuthResponseData } from './auth.service';
 import { subscribeOn } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -14,14 +15,14 @@ export class AuthComponent {
     isLoading = false;
     error: string = null;
 
-    constructor(private authService: AuthService, private router: Router) {}
+    constructor(private authService: AuthService, private router: Router, private componentFactoryResolver: ComponentFactoryResolver) { }
 
     onSwitchMode() {
         this.isLoginMode = !this.isLoginMode
     }
 
-    onSubmit(form: NgForm){
-        if(!form.valid){
+    onSubmit(form: NgForm) {
+        if (!form.valid) {
             return;
         }
 
@@ -30,11 +31,11 @@ export class AuthComponent {
 
         let authObs: Observable<AuthResponseData>
 
-        this.isLoading= true;
+        this.isLoading = true;
 
-        if(this.isLoginMode){
+        if (this.isLoginMode) {
             authObs = this.authService.logIn(email, password)
-        } 
+        }
         else {
             authObs = this.authService.signUp(email, password)
         }
@@ -44,13 +45,24 @@ export class AuthComponent {
                 //console.log(responseData)
                 this.isLoading = false
                 this.router.navigate(['/recipes'])
-        }, 
+            },
             errorMessage => {
                 //console.log(errorMessage)
                 this.error = errorMessage
+                this.showErrorAlert(errorMessage)
                 this.isLoading = false
-        });
+            });
 
         form.reset();
+    }
+
+    onHandleError() {
+        this.error = null;
+    }
+
+    private showErrorAlert(message: string) {
+        const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent)
+
+
     }
 }
