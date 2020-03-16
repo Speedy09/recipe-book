@@ -5,7 +5,7 @@ import { Injectable} from '@angular/core'
 import { Ingredient } from '../shared/ingredient.model';
 import { Store } from '@ngrx/store';
 import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions'
-import * as fromShoppingList from '../shopping-list/store/shopping-list.reducer'
+import * as fromApp from '../store/app.reducer'
 
 @Injectable()
 export class RecipeService {
@@ -31,7 +31,7 @@ export class RecipeService {
     // ];
     private recipes: Recipe[] = [];
 
-    constructor(private shoppingListService: ShoppingListService, private store: Store<fromShoppingList.AppState>) {}
+    constructor(private shoppingListService: ShoppingListService, private store: Store<fromApp.AppState>) {}
 
     setRecipes(recipes: Recipe[]){
         this.recipes = recipes
@@ -48,7 +48,8 @@ export class RecipeService {
 
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
         //this.shoppingListService.addIngredients(ingredients)
-        this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients))
+        this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
+        alert('The ingredients have been added to the shopping list')
     }
 
     addRecipe(recipe: Recipe){
