@@ -15,8 +15,6 @@ import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
-import { RecipesModule } from './recipes/recipes.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import {StoreModule} from '@ngrx/store'
 import * as fromApp from './store/app.reducer'
 import {EffectsModule} from '@ngrx/effects'
@@ -24,12 +22,29 @@ import { AuthEffects } from './auth/store/auth.effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools'
 import { environment } from '../environments/environment';
 import {StoreRouterConnectingModule} from '@ngrx/router-store'
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    //DropdownDirective,
+    ShoppingListComponent,
+    ShoppingEditComponent,
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    RecipeStartComponent,
+    RecipeEditComponent,
+    DropdownDirective,
     AuthComponent,
     LoadingSpinnerComponent,
     AlertComponent,
@@ -41,8 +56,7 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store'
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    RecipesModule,
-    ShoppingListModule,
+    RecipesRoutingModule,
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({logOnly: environment.production}),
