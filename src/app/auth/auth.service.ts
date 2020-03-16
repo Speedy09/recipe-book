@@ -26,41 +26,41 @@ export class AuthService {
 
     constructor(private http: HttpClient, private router: Router, private store: Store<fromApp.AppState>){}
 
-    signUp(email: string, password: string){
-        return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKey, 
-        {
-            email: email,
-            password: password,
-            returnSecureToken: true
-        })
-        .pipe(catchError(this.handleError), 
-        tap(responseData => {
-            this.handleAuth(
-                responseData.email,
-                responseData.localId,
-                responseData.idToken,
-                +responseData.expiresIn
-                )
-        }))
-    }
+    // signUp(email: string, password: string){
+    //     return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKey, 
+    //     {
+    //         email: email,
+    //         password: password,
+    //         returnSecureToken: true
+    //     })
+    //     .pipe(catchError(this.handleError), 
+    //     tap(responseData => {
+    //         this.handleAuth(
+    //             responseData.email,
+    //             responseData.localId,
+    //             responseData.idToken,
+    //             +responseData.expiresIn
+    //             )
+    //     }))
+    // }
 
-    logIn(email: string, password: string){
-        return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseAPIKey,
-        {
-            email: email,
-            password: password,
-            returnSecureToken: true
-        })
-        .pipe(catchError(this.handleError),
-        tap(responseData => {
-            this.handleAuth(
-                responseData.email,
-                responseData.localId,
-                responseData.idToken,
-                +responseData.expiresIn
-            )
-        }))
-    }
+    // logIn(email: string, password: string){
+    //     return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseAPIKey,
+    //     {
+    //         email: email,
+    //         password: password,
+    //         returnSecureToken: true
+    //     })
+    //     .pipe(catchError(this.handleError),
+    //     tap(responseData => {
+    //         this.handleAuth(
+    //             responseData.email,
+    //             responseData.localId,
+    //             responseData.idToken,
+    //             +responseData.expiresIn
+    //         )
+    //     }))
+    // }
 
     autoLogin(){
         const userData: {
@@ -100,7 +100,7 @@ export class AuthService {
         //this.user.next(null)
         this.store.dispatch(new AuthActions.Logout())
 
-        this.router.navigate(['/auth'])
+        //this.router.navigate(['/auth'])
         localStorage.removeItem('userData')
         if(this.tokenExpirationTimer) {
             clearTimeout(this.tokenExpirationTimer)

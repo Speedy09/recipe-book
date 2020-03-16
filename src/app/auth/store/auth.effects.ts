@@ -104,6 +104,13 @@ export class AuthEffects {
         tap(() => {
             this.router.navigate(['/recipes'])
         }))
+    
+    @Effect({ dispatch: false })
+    logOut = this.actions$.pipe(
+        ofType(AuthActions.LOGOUT),
+        tap(() => {
+            this.router.navigate(['/'])
+        }))
 
     constructor(private actions$: Actions, private http: HttpClient, private router: Router) {}
 }
