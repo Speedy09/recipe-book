@@ -22,7 +22,7 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropdownDirective,
+    //DropdownDirective,
     AuthComponent,
     LoadingSpinnerComponent,
     AlertComponent,
