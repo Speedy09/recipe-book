@@ -83,7 +83,7 @@ export class AuthService {
 
         if(loadedUser.token){
             //this.user.next(loadedUser)
-            this.store.dispatch(new AuthActions.Login({
+            this.store.dispatch(new AuthActions.AuthSuccess({
                 email: loadedUser.email,
                 userId: loadedUser.id,
                 token: loadedUser.token,
@@ -125,7 +125,7 @@ export class AuthService {
         )
 
         //this.user.next(user);
-        this.store.dispatch(new AuthActions.Login({
+        this.store.dispatch(new AuthActions.AuthSuccess({
             email: email,
             userId: userId,
             token: token,
