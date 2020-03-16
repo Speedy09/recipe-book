@@ -19,6 +19,8 @@ import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import {StoreModule} from '@ngrx/store'
 import * as fromApp from './store/app.reducer'
+import {EffectsModule} from '@ngrx/effects'
+import { AuthEffects } from './auth/store/auth.effects';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import * as fromApp from './store/app.reducer'
     AppRoutingModule,
     RecipesModule,
     ShoppingListModule,
-    StoreModule.forRoot(fromApp.appReducer)
+    StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [
     ShoppingListService, 
