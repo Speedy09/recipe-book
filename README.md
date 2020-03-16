@@ -9,6 +9,7 @@ This project was generated with [Angular CLI](https://angular.io/cli) version 9.
 
 * [Angular](https://angular.io/docs)
 * [Firebase](https://firebase.google.com/docs)
+* [NgRx](https://ngrx.io/docs)
 
 
 
