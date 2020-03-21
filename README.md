@@ -10,7 +10,6 @@ This project was generated with [Angular CLI](https://angular.io/cli) version 9.
 * [Angular](https://angular.io/docs)
 * [NgRx](https://ngrx.io/docs)
 * [Firebase](https://firebase.google.com/docs)
-* [Bootstrap](https://getbootstrap.com/)
 
 
 
